@@ -8,6 +8,7 @@ import Appointments from '../Screens/Appointments/Appointments';
 import Profile from '../Screens/Profile/Profile';
 import {black, grey, primaryColor} from '../utils/StylesConstants';
 import BookAppointments from '../Screens/Appointments/BookAppointments';
+import Scan from '../Screens/Scanner/Scan';
 
 const BottomNavigation = () => {
   const Tab = createBottomTabNavigator();
@@ -86,7 +87,7 @@ const BottomNavigation = () => {
         options={{ tabBarStyle: { display: "none" } }}
       /> */}
       <Tab.Screen name="Appointment" component={BookAppointments} />
-      <Tab.Screen name="Scan" component={Appointments} />
+      <Tab.Screen name="Scan" component={Scan} />
     </Tab.Navigator>
   );
 };

@@ -22,7 +22,8 @@ const Header = () => {
         width: responsiveWidth,
         // borderBottomColor: grey,
         // borderBottomWidth: 0.5,
-      }}>
+      }}
+      >
       <View
         style={{
           flexDirection: 'row',

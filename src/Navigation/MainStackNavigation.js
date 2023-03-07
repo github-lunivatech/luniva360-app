@@ -14,6 +14,7 @@ import DoctorProfile from '../Screens/Appointments/DoctorProfile';
 import AppointmentDetails from '../Screens/Appointments/AppointmentDetails';
 import ReportHistory from '../Screens/Reports/LabReports/ReportHistory';
 import ReportHistoryList from '../Screens/Reports/LabReports/ReportHistoryList';
+import Scan from '../Screens/Scanner/Scan';
 
 const LoginNavigation = () => {
   const Stack = createNativeStackNavigator();
@@ -83,6 +84,7 @@ const MainStackNavigation = ({props}) => {
         options={{headerShown: true, title: 'Report History'}}
       />
       <Stack.Screen name="ReportHistoryList" component={ReportHistoryList} />
+      <Stack.Screen name="Scan" component={Scan} />
     </Stack.Navigator>
   );
 };
