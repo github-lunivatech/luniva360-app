@@ -58,9 +58,9 @@ function ReanimatedCarousel() {
               source={item.source}
               style={{width: width * 0.99, height: width / 1.5}}
             />
-            <TouchableOpacity style={styles.btn}>
+            {/* <TouchableOpacity style={styles.btn}>
               <Text style={styles.txt}>Learn More</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             {/* <Text style={{ color: 'black' }}>hello</Text> */}
           </View>

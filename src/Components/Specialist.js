@@ -28,7 +28,7 @@ export default Specialist;
 const styles = StyleSheet.create({
   title: {
     color: buttonColor,
-    fontSize: 16,
+    fontSize: 18,
     marginTop: 10,
     marginBottom: 4,
     fontWeight: '600',

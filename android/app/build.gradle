@@ -2,6 +2,7 @@ apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
+
 import com.android.build.OutputFile
 
 /**
@@ -102,6 +103,10 @@ android {
         versionCode 1
         versionName "1.0"
     }
+     buildFeatures {
+        viewBinding true
+    }
+
 
     splits {
         abi {
@@ -154,6 +159,7 @@ dependencies {
     implementation("com.facebook.react:react-android")
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
+        
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {

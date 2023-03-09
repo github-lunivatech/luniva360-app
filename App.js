@@ -3,14 +3,17 @@ import {NavigationContainer} from '@react-navigation/native';
 import {StatusBar, Text} from 'react-native';
 import MainStackNavigation from './src/Navigation/MainStackNavigation';
 import {primaryColor, white} from './src/utils/StylesConstants';
+import {NativeBaseProvider} from 'native-base';
 
 function App() {
   return (
     <>
-      <NavigationContainer>
-        <StatusBar backgroundColor={primaryColor} />
-        <MainStackNavigation />
-      </NavigationContainer>
+      <StatusBar backgroundColor={primaryColor} />
+      <NativeBaseProvider>
+        <NavigationContainer>
+          <MainStackNavigation />
+        </NavigationContainer>
+      </NativeBaseProvider>
     </>
   );
 }

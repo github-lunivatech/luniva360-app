@@ -7,6 +7,7 @@ import {
   primaryColor,
   responsiveWidth,
 } from '../../utils/StylesConstants';
+import TwoStars from '../../Components/TwoStars';
 
 const OtpVerification = () => {
   return (
@@ -22,6 +23,7 @@ const OtpVerification = () => {
         {/* <StarOfLife />
         <StarOfLife /> */}
       </View>
+      <TwoStars />
       <Text
         style={{
           textAlign: 'center',

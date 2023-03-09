@@ -25,32 +25,33 @@ const BottomNavigation = () => {
             iconName = 'reader';
           } else if (route.name === 'Appointment') {
             iconName = 'md-today';
-          } else if (route.name === 'Scan') {
-            iconName = 'qr-code-sharp';
-            // return (
-            //   <>
-            //     <Image
-            //       source={require('../../src/Assets/Images/Doctor.png')}
-            //       resizeMode="contain"
-            //       style={[
-            //         {
-            //           width: 33,
-            //           height: 33,
-            //           backgroundColor: '#b7b9b8',
-            //           borderRadius: 30,
-            //         },
-            //       ]}
-            //     />
-            //     <Text
-            //       style={{
-            //         color: focused ? primaryColor : grey,
-            //         fontSize: 12,
-            //         marginBottom: 8,
-            //       }}>
-            //       {route.name}
-            //     </Text>
-            //   </>
-            // );
+          } else if (route.name === 'Profile') {
+            return (
+              <>
+                <Image
+                  source={{
+                    uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRekVjnKVnxqRLrzfkM8O1rk9GVHrrHLHd5jQ&usqp=CAU',
+                  }}
+                  resizeMode="contain"
+                  style={[
+                    {
+                      width: 33,
+                      height: 33,
+                      backgroundColor: '#b7b9b8',
+                      borderRadius: 30,
+                    },
+                  ]}
+                />
+                <Text
+                  style={{
+                    color: focused ? primaryColor : grey,
+                    fontSize: 12,
+                    marginBottom: 8,
+                  }}>
+                  {route.name}
+                </Text>
+              </>
+            );
           }
 
           // You can return any component that you like here!
@@ -87,7 +88,7 @@ const BottomNavigation = () => {
         options={{ tabBarStyle: { display: "none" } }}
       /> */}
       <Tab.Screen name="Appointment" component={BookAppointments} />
-      <Tab.Screen name="Scan" component={Scan} />
+      <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
 };

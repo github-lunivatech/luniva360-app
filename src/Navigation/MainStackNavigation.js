@@ -15,6 +15,9 @@ import AppointmentDetails from '../Screens/Appointments/AppointmentDetails';
 import ReportHistory from '../Screens/Reports/LabReports/ReportHistory';
 import ReportHistoryList from '../Screens/Reports/LabReports/ReportHistoryList';
 import Scan from '../Screens/Scanner/Scan';
+import Vitals from '../Screens/Vitals/Vitals';
+import NewCarousel from '../Screens/Vitals/NewCarousel';
+import Blog from '../Screens/Blog/Blog';
 
 const LoginNavigation = () => {
   const Stack = createNativeStackNavigator();
@@ -85,6 +88,21 @@ const MainStackNavigation = ({props}) => {
       />
       <Stack.Screen name="ReportHistoryList" component={ReportHistoryList} />
       <Stack.Screen name="Scan" component={Scan} />
+      <Stack.Screen
+        name="Vitals"
+        component={Vitals}
+        options={{headerShown: true, title: 'Vitals'}}
+      />
+      <Stack.Screen
+        name="NewCarousel"
+        component={NewCarousel}
+        options={{headerShown: true, title: 'NewCarousel'}}
+      />
+      <Stack.Screen
+        name="Blog"
+        component={Blog}
+        options={{headerShown: true, title: 'Blog'}}
+      />
     </Stack.Navigator>
   );
 };

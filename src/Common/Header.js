@@ -5,6 +5,7 @@ import {
   appBlue,
   buttonColor,
   grey,
+  lightprimaryColor,
   primaryColor,
   responsiveWidth,
   white,
@@ -18,12 +19,12 @@ const Header = () => {
     <View
       style={{
         elevation: 5,
-        backgroundColor: white,
+        backgroundColor: 'white',
         width: responsiveWidth,
+        elevation: 5,
         // borderBottomColor: grey,
         // borderBottomWidth: 0.5,
-      }}
-      >
+      }}>
       <View
         style={{
           flexDirection: 'row',
@@ -32,7 +33,7 @@ const Header = () => {
           marginLeft: 'auto',
           marginRight: 'auto',
           marginTop: 10,
-          backgroundColor: white,
+          backgroundColor: 'white',
           paddingBottom: 6,
         }}>
         <TouchableOpacity>
@@ -54,21 +55,25 @@ const Header = () => {
           {/* <TouchableOpacity>
             <Icon name="call" size={30} color="#555555" style={{}} />
           </TouchableOpacity> */}
-          <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-            {/* <Icon name="qr-code-scanner" size={30} color="#555555" style={{}} /> */}
-            <Image
-              source={require('../../src/Assets/Images/Doctor.png')}
+          <TouchableOpacity onPress={() => navigation.navigate('Scan')}>
+            <Icon name="qr-code-scanner" size={30} color="#555555" style={{}} />
+            {/* <Image
+              source={{
+                uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRekVjnKVnxqRLrzfkM8O1rk9GVHrrHLHd5jQ&usqp=CAU',
+              }}
               resizeMode="contain"
               style={[
                 {
                   width: 30,
                   height: 30,
                   backgroundColor: appBlue,
+                  borderColor: 'grey',
+                  borderWidth: 0.1,
 
                   borderRadius: 30,
                 },
               ]}
-            />
+            /> */}
             {/* <Text
               style={{
                 color: focused ? primaryColor : grey,

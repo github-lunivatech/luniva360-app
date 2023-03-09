@@ -2,7 +2,6 @@ import {View, Text, TouchableOpacity, Image, Dimensions} from 'react-native';
 import React from 'react';
 import InAppBrowser from 'react-native-inappbrowser-reborn';
 import {primaryColor} from '../../../utils/StylesConstants';
-import WebView from 'react-native-webview';
 // import {openBrowserAsync} from 'expo-web-browser';
 
 const URL =
@@ -10,31 +9,41 @@ const URL =
 const WIDTH = Dimensions.get('window').width;
 const LabReportsHospitals = () => {
   const data = [
-    {id: 1, name: 'NRL', img: require('../../../Assets/Images/nrl.jpg')},
+    {
+      id: 1,
+      name: 'NRL',
+      img: require('../../../Assets/Images/nrl.jpg'),
+      url: 'http://reports.samyakdiagnostic.com/ONLINEREPORTS/forms/fm_patient_report.aspx',
+    },
     {
       id: 2,
       name: 'Samjhana Laboratory',
       img: require('../../../Assets/Images/samjhana1.png'),
+      url: 'http://reports.samyakdiagnostic.com/ONLINEREPORTS/forms/fm_patient_report.aspx',
     },
     {
       id: 3,
       name: 'Crystal Diagonistic',
       img: require('../../../Assets/Images/crystal.jpg'),
+      url: 'https://lunivacare.crystaldiagnosticlab.com/crystal/Carelab/Report/Account/Login',
     },
     {
       id: 4,
       name: 'ManMohan Memorial',
       img: require('../../../Assets/Images/manmohan.jpg'),
+      url: 'http://reports.samyakdiagnostic.com/ONLINEREPORTS/forms/fm_patient_report.aspx',
     },
     {
       id: 5,
       name: 'Crystal Diagonistic',
       img: require('../../../Assets/Images/crystal.jpg'),
+      url: 'http://103.94.159.220:81/',
     },
     {
       id: 6,
       name: 'Samjhana Laboratory',
       img: require('../../../Assets/Images/samjhana1.png'),
+      url: 'https://report.k-lab.com.np/',
     },
   ];
 
@@ -88,10 +97,10 @@ const LabReportsHospitals = () => {
                   elevation: 2,
                 }}
                 onPress={() => {
-                  // return <WebView source={{uri: URL}} />;
-                  InAppBrowser.open(URL, {
+                  InAppBrowser.open(item.url, {
                     // Android Properties
-                    showTitle: true,
+
+                    showTitle: false,
                     toolbarColor: primaryColor,
                     secondaryToolbarColor: 'black',
                     navigationBarColor: 'black',

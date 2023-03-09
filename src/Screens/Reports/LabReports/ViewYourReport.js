@@ -107,7 +107,7 @@ const ViewYourReport = () => {
         </View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('QrCodeScanner');
+            navigation.navigate('Scan');
           }}>
           <Icon
             name="qr-code-scanner"

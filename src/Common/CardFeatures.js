@@ -52,19 +52,19 @@ const CardFeatures = () => {
                     alignItems: 'center',
                     marginTop: 10,
                     width: responsiveWidth * 0.28,
-                    height: 80,
+                    height: 100,
                     backgroundColor: item.color,
                     borderRadius: 6,
-                    elevation: 2,
+                    // elevation: 2,
                   },
                 ]}>
                 <View>
                   <Image
                     style={{
-                      height: 60,
-                      width: 60,
+                      height: 80,
+                      width: 70,
                       // marginTop: 30,
-                      tintColor: buttonColor,
+                      tintColor: 'black',
                       alignSelf: 'center',
                     }}
                     source={item.img}
@@ -77,9 +77,10 @@ const CardFeatures = () => {
                   {
                     color: '#205072',
                     textAlign: 'center',
-                    fontSize: 12,
+                    fontSize: 14,
+                    width: responsiveWidth * 0.26,
                     marginTop: 10,
-                    fontWeight: '600',
+                    fontWeight: '500',
                   },
                 ]}>
                 {item.text}

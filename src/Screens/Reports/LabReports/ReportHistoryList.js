@@ -43,30 +43,6 @@ const ReportHistoryList = props => {
       report: 'Report of Medical History',
       date: new Date(),
     },
-    {
-      id: 6,
-      test: 'Haemoglobin Test',
-      report: 'Report of Pathology Lab',
-      date: new Date(),
-    },
-    {
-      id: 7,
-      test: 'Haemoglobin Test',
-      report: 'Report of Pathology Lab',
-      date: new Date(),
-    },
-    {
-      id: 8,
-      test: 'Haemoglobin Test',
-      report: 'Report of Pathology Lab',
-      date: new Date(),
-    },
-    {
-      id: 9,
-      test: 'Haemoglobin Test',
-      report: 'Report of Pathology Lab',
-      date: new Date(),
-    },
   ];
 
   return (
@@ -102,7 +78,7 @@ const styles = StyleSheet.create({
     width: responsiveWidth * 0.95,
     marginLeft: 'auto',
     marginRight: 'auto',
-    marginTop: 30,
+    marginTop: 10,
   },
   eachConatiner: {
     backgroundColor: white,

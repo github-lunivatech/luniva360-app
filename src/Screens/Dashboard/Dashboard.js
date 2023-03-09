@@ -5,6 +5,9 @@ import ReanimatedCarousel from '../../Components/ReanimatedCarousel';
 import CardFeatures from '../../Common/CardFeatures';
 import TestAndCheckups from '../../Components/TestAndCheckups';
 import Specialist from '../../Components/Specialist';
+import NewCarousel from '../Vitals/NewCarousel';
+import MedicalBlog from '../../Components/MedicalBlog';
+import CarouselThird from '../../Components/CarouselThird';
 
 const Dashboard = () => {
   return (
@@ -13,10 +16,13 @@ const Dashboard = () => {
       <ScrollView>
         <ReanimatedCarousel />
         <CardFeatures />
+        {/* <NewCarousel /> */}
         <View style={{backgroundColor: 'white'}}>
           <TestAndCheckups />
 
+          <CarouselThird />
           <Specialist />
+          <MedicalBlog />
         </View>
       </ScrollView>
     </>

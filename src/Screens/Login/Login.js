@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import BackBtn from '../../Common/BackBtn';
 import {primaryColor, responsiveWidth} from '../../utils/StylesConstants';
 import CommonBtn from '../../Common/CommonBtn';
+import TwoStars from '../../Components/TwoStars';
 
 const Login = () => {
   return (
@@ -23,13 +24,14 @@ const Login = () => {
           {/* <StarOfLife />
         <StarOfLife /> */}
         </View>
+        <TwoStars />
         <Text
           style={[
             {
               color: '#205072',
               textAlign: 'center',
               marginTop: 10,
-              fontSize: 30,
+              fontSize: 35,
             },
           ]}>
           Login
@@ -51,11 +53,12 @@ const Login = () => {
             {marginLeft: 'auto', marginRight: 'auto', marginBottom: 10},
             styles.inputSection,
           ]}>
-          <Icon
-            name="phone-alt"
-            size={22}
-            color={primaryColor}
-            style={[styles.inputIcon]}
+          <Image
+            source={require('../../Assets/Icons/phone.png')}
+            style={[
+              styles.inputIcon,
+              {tintColor: '#E95420', width: 20, height: 20},
+            ]}
           />
           <TextInput
             style={styles.input}
@@ -69,11 +72,12 @@ const Login = () => {
             {marginLeft: 'auto', marginRight: 'auto'},
             styles.inputSection,
           ]}>
-          <Icon
-            name="user-lock"
-            size={21}
-            color={primaryColor}
-            style={[styles.inputIcon]}
+          <Image
+            source={require('../../Assets/Icons/lock.png')}
+            style={[
+              styles.inputIcon,
+              {tintColor: '#E95420', width: 20, height: 20},
+            ]}
           />
           <TextInput
             style={styles.input}
@@ -106,12 +110,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     width: responsiveWidth * 0.89,
     marginBottom: 40,
-    borderRadius: 2,
+    borderRadius: 6,
   },
   inputIcon: {
-    padding: 14,
-    borderWidth: 2,
-    borderColor: 'white',
+    padding: 6,
+    borderWidth: 6,
+    marginLeft: 5,
+    marginRight: 15,
+    // borderColor: 'white',
+    borderRadius: 6,
   },
   input: {
     flex: 1,

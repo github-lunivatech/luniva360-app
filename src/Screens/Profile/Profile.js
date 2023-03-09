@@ -16,6 +16,7 @@ import {
   primaryColor,
   responsiveWidth,
 } from '../../utils/StylesConstants';
+import CommonBtn from '../../Common/CommonBtn';
 
 const Profile = ({navigation}) => {
   return (
@@ -34,7 +35,7 @@ const Profile = ({navigation}) => {
             <Text style={styles.userName}>Shiva Kumar Runiyar</Text>
             <Text style={styles.userNumber}>+977 98438492849</Text>
             <TouchableOpacity style={styles.logOutBtn}>
-              <Text style={styles.btnText}>Log Out</Text>
+              <Text style={styles.btnText}>Edit</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -127,7 +128,9 @@ const Profile = ({navigation}) => {
               </Text>
             </View>
             <View>
-              <TouchableOpacity style={{padding: 6}}>
+              <TouchableOpacity
+                style={{padding: 6}}
+                onPress={() => navigation.navigate('Vitals')}>
                 <Image
                   source={require('../../Assets/Icons/greaterThan.png')}
                   style={[styles.icon, {width: 20, height: 20}]}
@@ -153,7 +156,9 @@ const Profile = ({navigation}) => {
               </Text>
             </View>
             <View>
-              <TouchableOpacity style={{padding: 6}}>
+              <TouchableOpacity
+                style={{padding: 6}}
+                onPress={() => navigation.navigate('NewCarousel')}>
                 <Image
                   source={require('../../Assets/Icons/greaterThan.png')}
                   style={[
@@ -167,18 +172,19 @@ const Profile = ({navigation}) => {
               </TouchableOpacity>
             </View>
           </View>
+          <CommonBtn title={'Log Out'} navigateTo={'Login'} />
         </View>
         {/* end of appointments and reports */}
-        <View
+        {/* <View
           style={{
             flexDirection: 'row',
             justifyContent: 'space-evenly',
-            marginTop: '59%',
+            marginTop: '54%',
             // bottom: 20,
           }}>
           <Text style={styles.policyText}>Private Policy</Text>
           <Text style={styles.policyText}>Terms And Condition</Text>
-        </View>
+        </View> */}
         {/* end of footer */}
       </View>
     </>
