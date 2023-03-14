@@ -10,13 +10,12 @@ import {
 const Blog = ({route}) => {
   const item = route.params.item;
 
+  console.log(item);
+
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
       <ScrollView>
-        <Image
-          source={require('../../Assets/Images/fruits.jpg')}
-          style={styles.img}
-        />
+        <Image source={{uri: item.img}} style={styles.img} />
         <View style={styles.conatiner}>
           <Text style={{color: appBlue, fontSize: 18}}>{item.info} </Text>
           <View style={{flexDirection: 'row', marginTop: 4}}>

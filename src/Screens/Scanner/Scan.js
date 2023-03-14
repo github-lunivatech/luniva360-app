@@ -1,26 +1,24 @@
-// import React, {useEffect, useState} from 'react';
-// import {StyleSheet, View, Text} from 'react-native';
-// import { Camera } from 'react-native-vision-camera';
-// const Scan = () => {
-//   const frameProcessor = useFrameProcessor(frame => {
-//     'worklet';
-//     const isHotdog = detectIsHotdog(frame);
-//     console.log(isHotdog ? 'Hotdog!' : 'Not Hotdog.');
-//   }, []);
+// // import React, {useEffect, useState} from 'react';
+// // import {StyleSheet, View, Text} from 'react-native';
+// // const Scan = () => {
+// //   const frameProcessor = useFrameProcessor(frame => {
+// //     'worklet';
+// //     const isHotdog = detectIsHotdog(frame);
+// //     console.log(isHotdog ? 'Hotdog!' : 'Not Hotdog.');
+// //   }, []);
 
-//   return (
-//     <View style={styles.container}>
+// //   return (
+// //     <View style={styles.container}>
 
-//       <Camera {...cameraProps} frameProcessor={frameProcessor} />
-//     </View>
-//   );
-// };
+// //       <Camera {...cameraProps} frameProcessor={frameProcessor} />
+// //     </View>
+// //   );
+// // };
 
 import * as React from 'react';
 import {Svg, Rect, Defs, Mask} from 'react-native-svg';
 
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {useCameraDevices} from 'react-native-vision-camera';
 import {Camera} from 'react-native-vision-camera';
 import {useScanBarcodes, BarcodeFormat} from 'vision-camera-code-scanner';
 import {
@@ -28,9 +26,12 @@ import {
   responsiveHeight,
   responsiveWidth,
 } from '../../utils/StylesConstants';
+import {useCameraDevices} from 'react-native-vision-camera';
+
 import BackBtn from '../../Common/BackBtn';
 import {Image} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import InAppBrowser from 'react-native-inappbrowser-reborn';
 
 function Scan({navigation}) {
   const [hasPermission, setHasPermission] = React.useState(false);
@@ -40,6 +41,57 @@ function Scan({navigation}) {
   const [frameProcessor, barcodes] = useScanBarcodes([BarcodeFormat.QR_CODE], {
     checkInverted: true,
   });
+
+  // React.useEffect(() => {
+  //   console.log('hi');
+  //   InAppBrowser.open('https://mhealth.lunivacare.com/download', {
+  //     // Android Properties
+
+  //     showTitle: false,
+  //     toolbarColor: primaryColor,
+  //     secondaryToolbarColor: 'black',
+  //     navigationBarColor: 'black',
+  //     navigationBarDividerColor: 'white',
+  //     enableUrlBarHiding: true,
+  //     enableDefaultShare: true,
+  //     forceCloseOnRedirection: false,
+  //     animations: {
+  //       startEnter: 'slide_in_right',
+  //       startExit: 'slide_out_left',
+  //       endEnter: 'slide_in_left',
+  //       endExit: 'slide_out_right',
+  //     },
+  //     headers: {
+  //       'my-custom-header': 'my custom header value',
+  //     },
+  //   });
+  // }, []);
+  React.useEffect(() => {
+    console.log(barcodes[0]?.displayValue);
+    if (barcodes[0]?.displayValue) {
+      InAppBrowser.open(barcodes[0]?.displayValue, {
+        // Android Properties
+
+        showTitle: false,
+        toolbarColor: primaryColor,
+        secondaryToolbarColor: 'black',
+        navigationBarColor: 'black',
+        navigationBarDividerColor: 'white',
+        enableUrlBarHiding: true,
+        enableDefaultShare: true,
+        forceCloseOnRedirection: false,
+        animations: {
+          startEnter: 'slide_in_right',
+          startExit: 'slide_out_left',
+          endEnter: 'slide_in_left',
+          endExit: 'slide_out_right',
+        },
+        headers: {
+          'my-custom-header': 'my custom header value',
+        },
+      }).catch(err => console.log(err));
+    }
+  }, [barcodes]);
 
   // Alternatively you can use the underlying function:
   //
@@ -156,11 +208,11 @@ function Scan({navigation}) {
             }}>
             Scan QR to View Your Reports
           </Text>
-          {barcodes.map((barcode, idx) => (
+          {/* {barcodes.map((barcode, idx) => (
             <Text key={idx} style={styles.barcodeTextURL}>
               {barcode.displayValue}
             </Text>
-          ))}
+          ))} */}
         </Svg>
       </>
     )
@@ -199,3 +251,43 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+// import {Camera} from 'react-native-vision-camera';
+// import {Linking} from 'react-native';
+// import {Text, View} from 'react-native';
+// import React, {useEffect, useCallback} from 'react';
+
+// const Scan = () => {
+//   const devices = useCameraDevices();
+//   const device = devices.back;
+
+//   useEffect(() => {
+//     requestCameraPermission();
+//   }, []);
+
+//   const requestCameraPermission = useCallback(async () => {
+//     const permission = await Camera.requestCameraPermission();
+//     if (permission === 'denied') await Linking.openSettings();
+//   }, []);
+
+//   const renderCamera = () => {
+//     if (device === null) {
+//       <View style={{flex: 1}}></View>;
+//     } else {
+//       return (
+//         <View style={{flex: 1}}>
+//           <Camera
+//             style={{flex: 1}}
+//             device={device}
+//             isActive={true}
+//             enableZoomGesture
+//           />
+//         </View>
+//       );
+//     }
+//   };
+
+//   return <>{renderCamera()}</>;
+// };
+
+// export default Scan;

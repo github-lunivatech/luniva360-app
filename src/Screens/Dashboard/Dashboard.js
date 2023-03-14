@@ -12,19 +12,21 @@ import CarouselThird from '../../Components/CarouselThird';
 const Dashboard = () => {
   return (
     <>
-      <StatusBar backgroundColor={primaryColor} />
-      <ScrollView>
-        <ReanimatedCarousel />
-        <CardFeatures />
-        {/* <NewCarousel /> */}
-        <View style={{backgroundColor: 'white'}}>
-          <TestAndCheckups />
+      <View style={{flex: 1, backgroundColor: 'white'}}>
+        <StatusBar backgroundColor={primaryColor} />
+        <ScrollView>
+          <ReanimatedCarousel />
+          <CardFeatures />
+          {/* <NewCarousel /> */}
+          <View style={{backgroundColor: 'white'}}>
+            <TestAndCheckups />
 
-          <CarouselThird />
-          <Specialist />
-          <MedicalBlog />
-        </View>
-      </ScrollView>
+            <CarouselThird />
+            <Specialist />
+            <MedicalBlog />
+          </View>
+        </ScrollView>
+      </View>
     </>
   );
 };

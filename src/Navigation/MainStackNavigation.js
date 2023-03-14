@@ -18,6 +18,11 @@ import Scan from '../Screens/Scanner/Scan';
 import Vitals from '../Screens/Vitals/Vitals';
 import NewCarousel from '../Screens/Vitals/NewCarousel';
 import Blog from '../Screens/Blog/Blog';
+import SearchLabs from '../Screens/LabTests/SearchLabs';
+import {appBlue} from '../utils/StylesConstants';
+import SampleCollection from '../Screens/LabTests/SampleCollection';
+import SelectTest from '../Screens/LabTests/SelectTest';
+import ReportDetails from '../Screens/Reports/LabReports/ReportDetails';
 
 const LoginNavigation = () => {
   const Stack = createNativeStackNavigator();
@@ -43,6 +48,7 @@ const MainStackNavigation = ({props}) => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
+        headerTintColor: appBlue,
       }}>
       <Stack.Screen name="LoginNavigation" component={LoginNavigation} />
       <Stack.Screen name="DashboardLayout" component={DashboardLayout} />
@@ -87,7 +93,11 @@ const MainStackNavigation = ({props}) => {
         options={{headerShown: true, title: 'Report History'}}
       />
       <Stack.Screen name="ReportHistoryList" component={ReportHistoryList} />
-      <Stack.Screen name="Scan" component={Scan} />
+      <Stack.Screen
+        name="Scan"
+        component={Scan}
+        // options={{headerShown: true, title: 'Scan'}}
+      />
       <Stack.Screen
         name="Vitals"
         component={Vitals}
@@ -102,6 +112,26 @@ const MainStackNavigation = ({props}) => {
         name="Blog"
         component={Blog}
         options={{headerShown: true, title: 'Blog'}}
+      />
+      <Stack.Screen
+        name="SearchLabs"
+        component={SearchLabs}
+        options={{headerShown: true, title: 'Search Labs'}}
+      />
+      <Stack.Screen
+        name="SampleCollection"
+        component={SampleCollection}
+        options={{headerShown: true, title: 'Sample Collection'}}
+      />
+      <Stack.Screen
+        name="SelectTest"
+        component={SelectTest}
+        options={{headerShown: true, title: 'Select Test'}}
+      />
+      <Stack.Screen
+        name="ReportDetails"
+        component={ReportDetails}
+        options={{headerShown: true, title: 'Report Details'}}
       />
     </Stack.Navigator>
   );

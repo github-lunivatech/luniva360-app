@@ -15,6 +15,7 @@ import {
   responsiveWidth,
 } from '../utils/StylesConstants';
 import {useNavigation} from '@react-navigation/native';
+import FastImage from 'react-native-fast-image';
 
 const MedicalBlog = () => {
   const navigation = useNavigation();
@@ -25,21 +26,21 @@ const MedicalBlog = () => {
       button: 'Fitness',
       info: '15 benefits of Vitamin D and its sources of fruits and vegetables',
       duration: 7,
-      img: require('../Assets/Images/fruits.jpg'),
+      img: 'https://images.pexels.com/photos/219794/pexels-photo-219794.jpeg?auto=compress&cs=tinysrgb&w=600',
     },
     {
       id: 1,
       button: 'Health',
       info: 'Precautions To Be Safe From Covid In This Winter',
       duration: 5,
-      img: require('../Assets/Images/labReports.jpg'),
+      img: 'https://images.pexels.com/photos/3957987/pexels-photo-3957987.jpeg?auto=compress&cs=tinysrgb&w=600',
     },
     {
       id: 3,
       button: 'Gym',
       info: 'Exercise can help prevent excess weight gain or help maintain weight loss.',
       duration: 15,
-      img: require('../Assets/Images/gym.jpeg'),
+      img: 'https://images.pexels.com/photos/13106586/pexels-photo-13106586.jpeg?auto=compress&cs=tinysrgb&w=600',
     },
   ];
 
@@ -72,7 +73,15 @@ const MedicalBlog = () => {
                   item: item,
                 })
               }>
-              <Image source={item.img} style={styles.img} />
+              {/* <Image source={item.img} style={styles.img} /> */}
+              <FastImage
+                source={{
+                  uri: item.img,
+                  priority: FastImage.priority.high,
+                }}
+                resizeMode={FastImage.resizeMode.cover}
+                style={styles.img}
+              />
               <View
                 style={{
                   backgroundColor: appBlue,
@@ -112,11 +121,12 @@ export default MedicalBlog;
 
 const styles = StyleSheet.create({
   conatiner: {
-    width: responsiveWidth * 0.7,
+    width: responsiveWidth * 0.75,
     marginRight: 30,
   },
   img: {
-    width: responsiveWidth * 0.7,
+    width: responsiveWidth * 0.75,
     height: responsiveHeight * 0.2,
+    borderRadius: 5,
   },
 });

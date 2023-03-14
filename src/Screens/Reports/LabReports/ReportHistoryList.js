@@ -8,40 +8,43 @@ import {
   white,
 } from '../../../utils/StylesConstants';
 import {ScrollView} from 'react-native-gesture-handler';
+import {useNavigation} from '@react-navigation/native';
 
 const ReportHistoryList = props => {
   const person = props.route.params?.person;
+
+  const navigation = useNavigation();
 
   const data = [
     {
       id: 1,
       test: 'Thyroid Function Test',
       report: 'Report of Radiology',
-      date: new Date(),
+      date: '2021-10-12',
     },
     {
       id: 2,
       test: 'Medical History',
       report: 'Report of Medical History',
-      date: new Date(),
+      date: '2021-10-12',
     },
     {
       id: 3,
       test: 'Haemoglobin Test',
       report: 'Report of Pathology Lab',
-      date: new Date(),
+      date: '2021-10-12',
     },
     {
       id: 4,
       test: 'Thyroid Function Test',
       report: 'Report of Radiology',
-      date: new Date(),
+      date: '2021-10-12',
     },
     {
       id: 5,
       test: 'Medical History',
       report: 'Report of Medical History',
-      date: new Date(),
+      date: '2021-10-12',
     },
   ];
 
@@ -52,7 +55,14 @@ const ReportHistoryList = props => {
         <View style={styles.listConatiner}>
           {data.map(item => {
             return (
-              <TouchableOpacity style={styles.eachConatiner} key={item.id}>
+              <TouchableOpacity
+                style={styles.eachConatiner}
+                key={item.id}
+                onPress={() =>
+                  navigation.navigate('ReportDetails', {
+                    item: item,
+                  })
+                }>
                 <Text style={{color: 'black', fontSize: 16, marginBottom: 5}}>
                   {item.test}
                 </Text>
@@ -60,7 +70,7 @@ const ReportHistoryList = props => {
                   {item.report}
                 </Text>
                 <Text style={{color: appBlue, marginBottom: 5}}>
-                  {item.date.toDateString()}
+                  {item.date}
                 </Text>
               </TouchableOpacity>
             );

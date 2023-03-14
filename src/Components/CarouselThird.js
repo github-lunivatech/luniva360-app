@@ -25,7 +25,7 @@ const CarouselThird = () => {
     {
       id: 2,
       discount: 'UPTO 40% OFF ON MEDICINES',
-      img: require('../Assets/Images/medicineShop.png'),
+      img: require('../Assets/Images/mdshop.png'),
       color: '#F8C085',
     },
   ];
@@ -42,13 +42,23 @@ const CarouselThird = () => {
         }}>
         Explore Exclusive Offers
       </Text>
+      <Text style={styles.desc}>
+        Your target for today is to keep positive mindset and smile to everyone
+        you meet.
+      </Text>
       <ScrollView horizontal={true}>
         {data.map(item => {
           return (
             <View
               style={[styles.eachContainer, {backgroundColor: item.color}]}
               key={item.id}>
-              <View style={{width: responsiveWidth * 0.3, marginLeft: 10}}>
+              <View
+                style={{
+                  width: responsiveWidth * 0.4,
+                  alignSelf: 'center',
+                  marginLeft: 10,
+                  padding: 10,
+                }}>
                 <Text style={{color: appBlue, fontSize: 20}}>
                   {item.discount}
                 </Text>
@@ -74,7 +84,11 @@ const CarouselThird = () => {
                   </Text>
                 </TouchableOpacity>
               </View>
-              <View style={{width: responsiveWidth * 0.5}}>
+              <View
+                style={{
+                  width: responsiveWidth * 0.4,
+                  justifyContent: 'center',
+                }}>
                 <Image source={item.img} style={styles.img} />
               </View>
             </View>
@@ -105,8 +119,17 @@ const styles = StyleSheet.create({
   },
   img: {
     width: '100%',
-    height: '130%',
-    resizeMode: 'stretch',
-    marginTop: -23,
+    height: '100%',
+    resizeMode: 'contain',
+    // marginTop: -23,
+    alignSelf: 'center',
+  },
+  desc: {
+    color: 'white',
+    fontSize: 14,
+    paddingHorizontal: 15,
+    width: responsiveWidth * 0.94,
+    marginBottom: 10,
+    marginLeft: 2,
   },
 });

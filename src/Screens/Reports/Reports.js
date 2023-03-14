@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {BlurView} from '@react-native-community/blur';
+import FastImage from 'react-native-fast-image';
 
 const WIDTH = Dimensions.get('window').width;
 
@@ -20,35 +20,40 @@ const Reports = () => {
       id: 1,
       nav: 'LabReports',
 
-      image: require('../../Assets/Images/labReports.jpg'),
+      image:
+        'https://images.pexels.com/photos/256262/pexels-photo-256262.jpeg?auto=compress&cs=tinysrgb&w=600',
     },
     {
       name: 'Radiology',
       nav: 'LabReports',
       id: 2,
 
-      image: require('../../Assets/Images/radiology.jpg'),
+      image:
+        'https://images.pexels.com/photos/7089022/pexels-photo-7089022.jpeg?auto=compress&cs=tinysrgb&w=600',
     },
     {
       name: 'Medical Report',
       nav: 'LabReports',
       id: 3,
 
-      image: require('../../Assets/Images/medicalReport.jpg'),
+      image:
+        'https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg?auto=compress&cs=tinysrgb&w=600',
     },
     {
       name: 'Prescription',
       nav: 'Prescription',
       id: 4,
 
-      image: require('../../Assets/Images/prescription.jpg'),
+      image:
+        'https://images.pexels.com/photos/3873169/pexels-photo-3873169.jpeg?auto=compress&cs=tinysrgb&w=600',
     },
     {
       name: 'Medical Bill',
       nav: 'MedicalBill',
       id: 5,
 
-      image: require('../../Assets/Images/medicalBills.jpg'),
+      image:
+        'https://www.gannett-cdn.com/-mm-/1e13d64b87a0e5d73e18fdea2ef9545c6bf86634/c=0-59-2118-1256/local/-/media/2017/04/24/Phoenix/Phoenix/636286706793942165-GettyImages-598249418.jpg',
     },
   ];
 
@@ -79,14 +84,15 @@ const Reports = () => {
               }}
               onPress={() => navigation.navigate(item.nav)}
               key={item.id}>
-              <ImageBackground
-                source={item.image}
-                imageStyle={{
-                  borderRadius: 10,
+              <FastImage
+                source={{
+                  uri: item.image,
+                  priority: FastImage.priority.high,
                 }}
-                resizeMode="cover"
-                style={{height: 120}}>
-                {/* <BlurView
+                resizeMode={FastImage.resizeMode.cover}
+                style={{height: 120, borderRadius: 10}}
+              />
+              {/* <BlurView
                   blurType="light"
                   blurAmount={100}
                   reducedTransparencyFallbackColor="white"
@@ -99,25 +105,24 @@ const Reports = () => {
                     borderBottomEndRadius: 15,
                     borderBottomLeftRadius: 15,
                   }}></BlurView> */}
-                <Text
-                  style={{
-                    textAlign: 'center',
-                    fontSize: 14,
-                    color: '#205072',
-                    fontWeight: '600',
-                    position: 'absolute',
-                    backgroundColor: 'rgba(245, 235, 215, 0.9)',
-                    borderBottomRightRadius: 9,
-                    borderBottomLeftRadius: 9,
-                    paddingTop: 8,
+              <Text
+                style={{
+                  textAlign: 'center',
+                  fontSize: 14,
+                  color: '#205072',
+                  fontWeight: '600',
+                  position: 'absolute',
+                  backgroundColor: 'rgba(245, 235, 215, 0.9)',
+                  borderBottomRightRadius: 9,
+                  borderBottomLeftRadius: 9,
+                  paddingTop: 8,
 
-                    width: '100%',
+                  width: '100%',
 
-                    bottom: 0,
-                  }}>
-                  {item.name}
-                </Text>
-              </ImageBackground>
+                  bottom: 0,
+                }}>
+                {item.name}
+              </Text>
             </TouchableOpacity>
           );
         })}

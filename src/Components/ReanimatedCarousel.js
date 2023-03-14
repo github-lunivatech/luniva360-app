@@ -9,28 +9,29 @@ import {
 } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 import {primaryColor} from '../utils/StylesConstants';
+import FastImage from 'react-native-fast-image';
 
 const width = Dimensions.get('window').width;
 function ReanimatedCarousel() {
   const images = [
     {
       id: 1,
-      source: require('../Assets/Carouselimages/carousel1.jpg'),
+      uri: 'https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=600',
       title: 'hello',
     },
     {
       id: 2,
-      source: require('../Assets/Carouselimages/carousel2.jpg'),
+      uri: 'https://www.gannett-cdn.com/-mm-/1e13d64b87a0e5d73e18fdea2ef9545c6bf86634/c=0-59-2118-1256/local/-/media/2017/04/24/Phoenix/Phoenix/636286706793942165-GettyImages-598249418.jpg',
       title: 'hello',
     },
     {
       id: 3,
-      source: require('../Assets/Carouselimages/carousel3.jpg'),
+      uri: 'https://images.pexels.com/photos/4033148/pexels-photo-4033148.jpeg?auto=compress&cs=tinysrgb&w=600',
       title: 'hello',
     },
     {
       id: 4,
-      source: require('../Assets/Carouselimages/carousel4.jpg'),
+      uri: 'https://images.pexels.com/photos/5726837/pexels-photo-5726837.jpeg?auto=compress&cs=tinysrgb&w=600',
       title: 'hello',
     },
   ];
@@ -54,8 +55,16 @@ function ReanimatedCarousel() {
               marginTop: 1.5,
               // borderRadius: 10,
             }}>
-            <Image
+            {/* <Image
               source={item.source}
+              style={{width: width * 0.99, height: width / 1.5}}
+            /> */}
+            <FastImage
+              source={{
+                uri: item.uri,
+                priority: FastImage.priority.high,
+              }}
+              resizeMode={FastImage.resizeMode.contain}
               style={{width: width * 0.99, height: width / 1.5}}
             />
             {/* <TouchableOpacity style={styles.btn}>

@@ -14,6 +14,7 @@ import {
   primaryColor,
   responsiveWidth,
 } from '../../utils/StylesConstants';
+import TwoStars from '../../Components/TwoStars';
 
 const WIDTH = Dimensions.get('window').width;
 
@@ -30,10 +31,12 @@ const SendOtp = () => {
         {/* <StarOfLife />
         <StarOfLife /> */}
       </View>
+      <TwoStars />
+
       <Image
         style={{
-          height: 110,
-          width: 140,
+          height: 90,
+          width: 100,
           marginTop: 10,
           marginLeft: 'auto',
           marginRight: 'auto',
@@ -41,7 +44,7 @@ const SendOtp = () => {
         source={require('../../Assets/Images/Verification.png')}
         resizeMode={'cover'}
       />
-      <Text
+      {/* <Text
         style={{
           marginTop: 5,
           textAlign: 'center',
@@ -49,7 +52,7 @@ const SendOtp = () => {
           fontSize: 28,
         }}>
         Verification
-      </Text>
+      </Text> */}
       <Text
         style={{
           textAlign: 'center',

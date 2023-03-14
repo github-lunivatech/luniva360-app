@@ -29,7 +29,7 @@ const FirstScreen = ({navigation}) => {
                 color: primaryColor,
                 textAlign: 'center',
                 marginTop: 10,
-                fontSize: 25,
+                fontSize: 45,
               },
             ]}>
             Luniva<Text style={{color: '#7b7b7b'}}>360</Text>
@@ -38,23 +38,24 @@ const FirstScreen = ({navigation}) => {
             style={{
               marginTop: 5,
               textAlign: 'center',
-              color: 'black',
+              color: 'grey',
               fontSize: 12,
               width: responsiveWidth * 0.7,
               marginLeft: 'auto',
               marginRight: 'auto',
             }}>
-            A health app made with love for seeking online medical help
+            A health app made with{'\n'}love for seeking online medical help
           </Text>
           <Image
             style={{
               height: responsiveHeight * 0.4,
-              width: responsiveWidth * 0.7,
+              width: responsiveWidth * 0.4,
               marginLeft: 'auto',
               marginRight: 'auto',
+              marginBottom: 20,
               //   marginTop: 10,
             }}
-            source={require('../../Assets/Images/Default.png')}
+            source={require('../../Assets/Images/Doctor.png')}
             resizeMode={'contain'}
           />
           <CommonBtn title={'Get Started'} navigateTo={'Login'} />

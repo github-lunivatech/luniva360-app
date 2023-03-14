@@ -22,15 +22,11 @@ const Vitals = () => {
           <FormControl.Label style={styles.label}>Patient:</FormControl.Label>
           <View style={styles.content}>
             <Select
+              variant="outline"
               selectedValue={service}
               minWidth="100"
               accessibilityLabel="Choose Patient"
               placeholder="Choose Patient"
-              animationType="fade"
-              _selectedItem={{
-                bg: 'teal.600',
-                endIcon: <CheckIcon size="5" />,
-              }}
               onValueChange={itemValue => console.log(itemValue)}>
               <Select.Item label="UX Research" value="ux" />
               <Select.Item label="Web Development" value="web" />
@@ -51,11 +47,20 @@ const Vitals = () => {
             Blood Pressure:
           </FormControl.Label>
           <View
-            style={[styles.content, {marginLeft: 14, flexDirection: 'row'}]}>
-            <Checkbox value="one">Sys:</Checkbox>
-            <Checkbox value="two" style={{marginLeft: 30}}>
-              Dys
-            </Checkbox>
+            style={[
+              styles.content,
+              {flexDirection: 'row', justifyContent: 'space-between'},
+            ]}>
+            <Input
+              placeholder="Sys"
+              w="45%"
+              style={styles.entryBox}
+              keyboardType="numeric"></Input>
+            <Input
+              placeholder="Dys"
+              w="45%"
+              style={styles.entryBox}
+              keyboardType="numeric"></Input>
           </View>
         </Box>
         <Box maxW="400" style={styles.box}>
